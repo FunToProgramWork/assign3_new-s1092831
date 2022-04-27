@@ -9,7 +9,12 @@ final int START_BUTTON_Y = 360;
 
 PImage title, gameover, startNormal, startHovered, restartNormal, restartHovered;
 PImage bg, soil8x24;
-
+PImage lifeImg,stone1;
+PImage soil0,soil1,soil2,soil3,soil4,soil5;
+PImage groundhogIdle;
+PImage soldierImg;
+PImage cabbage;
+int x = 0;
 // For debug function; DO NOT edit or remove this!
 int playerHealth = 0;
 float cameraOffsetY = 0;
@@ -26,9 +31,21 @@ void setup() {
 	restartNormal = loadImage("img/restartNormal.png");
 	restartHovered = loadImage("img/restartHovered.png");
 	soil8x24 = loadImage("img/soil8x24.png");
+  soil0 = loadImage("img/soil0.png");
+  soil1 = loadImage("img/soil1.png");
+  soil2 = loadImage("img/soil2.png");
+  soil3 = loadImage("img/soil3.png");
+  soil4 = loadImage("img/soil4.png");
+  soil5 = loadImage("img/soil5.png");
+  lifeImg= loadImage("img/life.png");
+  stone1= loadImage("img/stone1.png");
+  groundhogIdle= loadImage("img/groundhogIdle.png");
+  soldierImg = loadImage("img/soldier.png");
+  cabbage = loadImage("img/cabbage.png");
 }
 
 void draw() {
+  
     /* ------ Debug Function ------ 
 
       Please DO NOT edit the code here.
@@ -83,10 +100,62 @@ void draw() {
 
 		// Soil - REPLACE THIS PART WITH YOUR LOOP CODE!
 		image(soil8x24, 0, 160);
-
+    image(soil1, 0, 480);
+    image(soil1, 80, 480);
+    image(soil1, 160, 480);
+    image(soil1, 240, 480);
+    image(soil1, 320, 480);
+    image(soil1, 400, 480);
+    image(soil1, 480, 480);
+    image(soil1, 560, 480);
+    //
+    image(soil1, 0, 560);
+    image(soil1, 80, 560);
+    image(soil1, 160, 560);
+    image(soil1, 240, 560);
+    image(soil1, 320, 560);
+    image(soil1, 400, 560);
+    image(soil1, 480, 560);
+    image(soil1, 560, 560);
+    //
+    image(soil1, 0, 640);
+    image(soil1, 80, 640);
+    image(soil1, 160, 640);
+    image(soil1, 240, 640);
+    image(soil1, 320, 640);
+    image(soil1, 400, 640);
+    image(soil1, 480, 640);
+    image(soil1, 560, 640);
+    //
+    image(soil1, 0, 720);
+    image(soil1, 80, 720);
+    image(soil1, 160, 720);
+    image(soil1, 240, 720);
+    image(soil1, 320, 720);
+    image(soil1, 400, 720);
+    image(soil1, 480, 720);
+    image(soil1, 560, 720);
+    //
+    
+    image(stone1,0, 160);
+    image(stone1,80, 240);
+    image(stone1,160,320);
+    image(stone1,240,400);
+    image(stone1,320,480);
+    image(stone1,400,560);
+    image(stone1,480,640);
+    image(stone1,560,720);
 		// Player
+    image(groundhogIdle,320,80);
+      image(soldierImg,x,160);
+  x=x+1;
+  if (x> 640)
+  x = -80;
+  image(cabbage,80,320);
 
 		// Health UI
+  image(lifeImg,10,10);
+  image(lifeImg,80,10);
 
 		break;
 
@@ -117,6 +186,7 @@ void draw() {
     if (debugMode) {
         popMatrix();
     }
+    
 }
 
 void keyPressed(){
